@@ -1,0 +1,61 @@
+<%- include('../layouts/header.ejs') %>
+
+<div class="container">
+  <h1><strong>ADMIN DASHBOARD</strong></h1>
+  <input type="text" id="searchInput" placeholder="Search...">
+  <table id="userList">
+    <tr>
+      <th>NAME</th>
+      <th>EMAIL</th>
+      <th>PHONE NUMBER</th>
+      <th>IMAGE</th>
+      <th>ACTION</th>
+    </tr>
+    <% if (users.length > 0) { for(let i = 0;i<users.length;i++){ %>
+              <tr><td><%=users[i].name%></td>
+                  <td><%=users[i].email%></td>
+                  <td><%=users[i].mobile%></td>
+                  <td><img width="80px" height="80px" src="/userImages/<%=users[i].image%>" alt="<%=users[i].image%>"></td>
+                  <td><a class="editButton" href="/admin/edit-user?id=<%= users[i]._id %>">Edit</a></td>
+                  <td><a class="deleteButton" href="/admin/delete-user?id=<%= users[i]._id %>">Delete</a></td>
+              </tr>
+      <%}}else{%>
+          <tr><td colspan="5">user is not founded</td></tr>
+          <%}%>
+  </table>
+  <a class="editButton" href="/admin/login">back to home</a>
+<br><br>
+
+<a class="editButton" href="/admin/new-user">Add New User</a>
+<br><br>
+</div>
+<script>
+  // Reference to the search input and user list elements
+  const searchInput = document.getElementById('searchInput');
+  const userList = document.getElementById('userList');
+
+  // Function to filter the user list based on the search input value
+  function filterUsers() {
+    const searchValue = searchInput.value.toLowerCase();
+    const users = [...userList.querySelectorAll('tr:not(:first-child)')];
+    users.forEach(user => {
+      const name = user.querySelector('td:nth-child(1)').textContent.toLowerCase();
+      const email = user.querySelector('td:nth-child(2)').textContent.toLowerCase();
+      const mobile = user.querySelector('td:nth-child(3)').textContent.toLowerCase();
+
+      if (
+        name.includes(searchValue) ||
+        email.includes(searchValue) ||
+        mobile.includes(searchValue)
+      ) {
+        user.style.display = '';
+      } else {
+        user.style.display = 'none';
+      }
+    });
+  }
+
+  // Event listener to call the filterUsers function when the search input changes
+  searchInput.addEventListener('input', filterUsers);
+</script>
+<%- include('../layouts/footer.ejs') %>

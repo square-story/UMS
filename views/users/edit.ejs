@@ -1,0 +1,45 @@
+<%- include('../layouts/header.ejs') %>
+
+<div id="profile-edit-save">
+    <button id="editSave">Update Details</button>
+  </div>
+  <div id="profile-edit-area">
+    <form action="" method="POST" enctype="multipart/form-data">
+    <div id="edit-area-left">
+        <table>
+          <tbody>
+            <input type="hidden" name="user_id" value="<%= user._id %>">
+            <tr>
+              <td class="edit-title">Name:</td>
+              <td><input type="text" name="name" value="<%= user.name %>" placeholder="Enter Name" required class="profileInputBox"/></td>
+            </tr>
+            <tr>
+              <td class="edit-title">Email:</td>
+              <td><input type="email" name="email" value="<%= user.email %>" placeholder="Enter Email" class="profileInputBox"/></td>
+            </tr>
+            <tr>
+              <td class="edit-title">Mobile:</td>
+              <td><input type="text" name="mno" value="<%= user.mobile %>" placeholder="Enter Your MobileNumber" required class="profileInputBox"/></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div id="edit-area-right">
+      <table>
+          <tbody>
+            
+              <td class="edit-title">Choose One:</td>
+              <td><input type="file" name="image" class="profileInputBox"/></td>
+            </tr>
+            <tr>
+              <td class="edit-title">current</td>
+              <td><img src="userImages/<%= user.image %>" width="150px" height="150px" alt="<%= user.image %>"></td>
+            </tr>
+            <input type="submit" value="Save Changes" class="Save">
+          </tbody>
+        </table>
+    </div>
+  </form>
+  </div>
+
+<%- include('../layouts/footer.ejs') %>

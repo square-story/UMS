@@ -1,0 +1,30 @@
+<%- include('../layouts/header.ejs') %>
+
+<!--it will show the details of admin-->
+<div id="admin_information">
+
+  <div id="admin_image">
+    <img width="300px" height="300px" src="/userImages/<%= admin.image %>">
+  </div>	
+
+  <div id="admin_details">
+  <label>name</label>
+  <p><%= admin.name %></p>
+
+  <label>Email</label>
+  <p><%= admin.email %></p>
+
+  <label>Mobile</label>
+  <p><%= admin.mobile %></p>
+  </div>
+  
+</div>
+
+<div id="admin_controls">
+  
+  <button><a class="aButtton" href="/admin/dashboard"><strong>dashboard</strong></a></button>
+  <button><a class="aButtton" href="/admin/logout"><strong>Logout</strong></a></button>
+
+</div>
+
+<%- include('../layouts/footer.ejs') %>

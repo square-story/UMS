@@ -1,0 +1,32 @@
+<%- include('../layouts/header.ejs') %>
+<h1 class="title-pen"> Welcome To <span>Home Page</span></h1>
+<div class="user-profile">
+	<img class="avatar" src="userImages/<%= user.image %>" alt="Ash" />
+    <div class="username"><%= user.name %></div>
+  <div class="bio">
+    <%= user.email %>
+  </div>
+    <div class="description">
+        mobile number : <%= user.mobile %>
+  </div>
+  <ul class="data">
+    <li>
+      <span class="entypo-heart"> 127</span>
+    </li>
+    <li>
+      <span class="entypo-eye"> 853</span>
+    </li>
+    <li>
+      <span class="entypo-user"> 311</span>
+    </li>
+ </ul>
+</div>
+  <footer>
+    <h1>you want edit your details
+        <a href="/edit?id=<%= user._id %>">Click Here</a>
+        <br>
+  <span class="entypo-dribbble"></span> <a href="/logout">Logout</a></a>
+    </h1>
+  </footer>
+
+<%- include('../layouts/header.ejs') %>

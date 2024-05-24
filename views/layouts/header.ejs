@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System</title>
+    <% if (dashboardType === 'admin-login') { %>
+        <link rel="stylesheet" href="/css/admin/login.css">
+    <% } else if (dashboardType === 'user') { %>
+        <link rel="stylesheet" href="/css/user/login.css">
+    <% } else if (dashboardType === 'admin-home') {%>
+        <link rel="stylesheet" href="/css/admin/home.css">
+    <%}else if (dashboardType === 'user-home') {%>
+        <link rel="stylesheet" href="/css/user/home.css">
+    <%}else if (dashboardType === 'user-edit') {%>
+        <link rel="stylesheet" href="/css/user/edit.css">
+    <%}else if (dashboardType === 'user-registration') {%>
+        <link rel="stylesheet" href="/css/user/registration.css">
+    <%}else if (dashboardType === 'admin-new-user') {%>
+        <link rel="stylesheet" href="/css/admin/new-user.css">
+    <%}else if (dashboardType === 'admin-dashboard') {%>
+        <link rel="stylesheet" href="/css/admin/dashboard.css">
+    <%}else if (dashboardType === 'admin-edit-user') {%>
+        <link rel="stylesheet" href="/css/admin/edit-user.css">
+    <%}%>
+</head>
+<body>

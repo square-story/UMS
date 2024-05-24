@@ -1,0 +1,22 @@
+<%- include('../layouts/header.ejs') %>
+
+<!--creates a form that will submit its data to the same URL using the HTTP POST method when the form is submitted.-->
+<div class="login-box">
+  <h2>Admin Login</h2>
+  <form action="" method="post">
+    <% if (typeof message !== 'undefined') { %>
+      <h3 style="color: red" class="error-message"><%= message %></h3>
+      <% } %>
+    <div class="user-box">
+      <input type="email" name="email" required="">
+      <label>Email</label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="password" required="">
+      <label>Password</label>
+    </div>
+    <input type="submit" value="LogIn" class="my-button">
+  </form>
+</div>
+
+<%- include('../layouts/footer.ejs') %>
